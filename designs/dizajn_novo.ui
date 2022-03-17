@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>928</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="pozadina" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>931</width>
+     <height>721</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(27, 29, 35);</string>
+   </property>
+   <widget class="QLabel" name="danas_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(44, 49, 61);
+color: red;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+font-size: 40px;
+border: 1px solid rgb(51, 122, 183);
+border-radius: 5px;</string>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string>DANAS</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="danas_lista">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>331</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lista stvari koje namjeravate obaviti danas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(44, 49, 61);
+color: white;
+font-family: 'Times New Roman', serif;
+font-size: 20px;
+border: 1px solid rgb(130, 135, 144);
+border-radius: 5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>napravi prvu stvar</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>napravi drugu stvar</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>napravi trecu stvar</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPlainTextEdit" name="danas_upis">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>331</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Prostor za upisati što želite dodati na listu.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(26, 29, 37);
+color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+font-size: 12px;
+border: 1px solid rgb(78, 165, 255);
+border-radius: 5px;
+</string>
+    </property>
+    <property name="plainText">
+     <string>Upisite što želite dodati na današnju listu.
+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="danas_obrisi">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>420</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za obrisati stvar sa današnje liste.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>OBRIŠI</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="danas_dodaj">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>420</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za dodati stvar na današnju listu.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>DODAJ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="danas_dovrseno">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>470</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za označiti stvar na današnjoj listi kao obavljenu.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>OZNAČI KAO DOVRŠENO</string>
+    </property>
+   </widget>
+   <widget class="QCalendarWidget" name="kalendar">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>20</y>
+      <width>371</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Kalendar na kojem možete izabrati datum za koji želite uređivati listu.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(44, 49, 61);
+alternate-background-color: rgb(44, 49, 61);
+color:white;
+border-bottom: 1px solid rgb(78, 165, 255);
+font-weight: bold;</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="datum_lista">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>280</y>
+      <width>371</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Lista stvari koje namjeravate obaviti na odabrani datum.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(44, 49, 61);
+color: white;
+font-family: 'Times New Roman', serif;
+font-size: 20px;
+border: 1px solid rgb(130, 135, 144);
+border-radius: 5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>napravi prvu stvar</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>napravi drugu stvar</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>napravi trecu stvar</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="datum_label">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>240</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Izabrani datum.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(44, 49, 61);
+color: red;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+font-size: 30px;
+border: 1px solid rgb(51, 122, 183);
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>21.10.2021.</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="datum_dodaj">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>560</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za dodati stvar na listu za odabrani datum.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>DODAJ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="datum_obrisi">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>560</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za obrisati stvar sa liste za odabrani datum.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>OBRIŠI</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="datum_dovrseno">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>610</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za označiti stvar na listi za odabrani datum kao obavljenu.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>OZNAČI KAO DOVRŠENO</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="datum_upis">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>500</y>
+      <width>371</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka za dodati stvar na današnju listu.
+</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(26, 29, 37);
+color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+font-size: 12px;
+border: 1px solid rgb(78, 165, 255);
+border-radius: 5px;
+</string>
+    </property>
+    <property name="plainText">
+     <string>Upisite što želite dodati na listu.
+</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>80</y>
+      <width>1</width>
+      <height>144</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1</width>
+      <height>200</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 164, 254);</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

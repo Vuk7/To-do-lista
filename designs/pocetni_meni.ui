@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>930</width>
+    <height>649</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>931</width>
+     <height>721</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(44, 49, 61);
+color: red;
+font-family: \'Times New Roman\', serif;
+font-weight: bold;
+font-size: 40px;
+border: 1px solid rgb(51, 122, 183);
+border-radius: 5px;</string>
+   </property>
+   <widget class="QLabel" name="naslov_tekst">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>110</y>
+      <width>931</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Naziv aplikacije.</string>
+    </property>
+    <property name="text">
+     <string>To/do lista</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ucitaj_listu">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>260</y>
+      <width>301</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka koja otvara izbornik za otvaranje postojeće liste.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: \'Times New Roman\', serif;
+font-weight: bold;
+font-size: 20px;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>UČITAJ LISTU</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="kreiraj_listu">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>340</y>
+      <width>301</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka koja otvara izbornik za kreiranje nove liste.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(78, 165, 255);
+color: black;
+font-family: \'Times New Roman\', serif;
+font-weight: bold;
+font-size: 20px;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>KREIRAJ NOVU LISTU</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
