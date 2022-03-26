@@ -5,6 +5,7 @@ class Meni_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(930, 649)
+        #promijeni
         Dialog.setFixedSize(930,649)
         self.widget = QtWidgets.QWidget(Dialog)
         self.widget.setGeometry(QtCore.QRect(0, 0, 931, 721))
@@ -44,7 +45,9 @@ class Meni_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
+        #promijeni
         Dialog.setWindowTitle(_translate("Dialog", "To/do lista meni"))
+        Dialog.setWindowIcon(QtGui.QIcon('to-do-list.png'))
         self.naslov_tekst.setWhatsThis(_translate("Dialog", "Naziv aplikacije."))
         self.naslov_tekst.setText(_translate("Dialog", "To/do lista"))
         self.ucitaj_listu.setWhatsThis(_translate("Dialog", "Tipka koja otvara izbornik za otvaranje postojeće liste."))

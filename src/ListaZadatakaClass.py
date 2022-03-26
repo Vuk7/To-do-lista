@@ -29,4 +29,15 @@ class ListaZadataka(object):
     def ObrisiZadatak(self, id):
         self.lista_zadataka.pop(id)
 
+    #Vraća broj zadataka u list
+    def VratiBrojZadataka(self):
+        return len(self.lista_zadataka)
+
+    #Vraća broj dovršenih zadataka
+    def VratiBrojDovrsenih(self):
+        brojac = 0
+        for i in self.lista_zadataka:
+            if(i.VratiStanje() == True):
+                brojac += 1
+        return brojac
 

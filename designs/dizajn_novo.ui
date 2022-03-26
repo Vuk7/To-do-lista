@@ -81,17 +81,20 @@ border-radius: 5px;</string>
     </property>
     <item>
      <property name="text">
-      <string>napravi prvu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>napravi drugu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>napravi trecu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
    </widget>
@@ -99,7 +102,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>360</y>
+      <y>400</y>
       <width>331</width>
       <height>51</height>
      </rect>
@@ -118,15 +121,14 @@ border-radius: 5px;
 </string>
     </property>
     <property name="plainText">
-     <string>Upisite što želite dodati na današnju listu.
-</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="danas_obrisi">
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>420</y>
+      <y>460</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -149,7 +151,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>420</y>
+      <y>460</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -172,7 +174,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>470</y>
+      <y>510</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -215,7 +217,7 @@ font-weight: bold;</string>
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>280</y>
+      <y>310</y>
       <width>371</width>
       <height>211</height>
      </rect>
@@ -233,17 +235,20 @@ border-radius: 5px;</string>
     </property>
     <item>
      <property name="text">
-      <string>napravi prvu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>napravi drugu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>napravi trecu stvar</string>
+      <string>Pogreška u učitavanju programa, 
+pokrenite ponovno!</string>
      </property>
     </item>
    </widget>
@@ -285,7 +290,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>560</y>
+      <y>590</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -308,7 +313,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>720</x>
-      <y>560</y>
+      <y>590</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -331,7 +336,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>630</x>
-      <y>610</y>
+      <y>640</y>
       <width>161</width>
       <height>31</height>
      </rect>
@@ -354,7 +359,7 @@ border-radius: 5px;</string>
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>500</y>
+      <y>530</y>
       <width>371</width>
       <height>51</height>
      </rect>
@@ -374,11 +379,10 @@ border-radius: 5px;
 </string>
     </property>
     <property name="plainText">
-     <string>Upisite što želite dodati na listu.
-</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="QWidget" name="kalendar_crtica" native="true">
     <property name="geometry">
      <rect>
       <x>570</x>
@@ -395,6 +399,176 @@ border-radius: 5px;
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(78, 164, 254);</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="boja_dovrsenih_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>680</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Boja zadataka koji su označeni kao dovršeni.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #754e4b;
+border-radius: 5px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="boja_nedovrsenih_widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>650</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Boja zadataka koji još nisu dovršeni.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #ffffff;
+border-radius: 5px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tekst_dovrsenih">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>680</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Boja zadataka koji su označeni kao dovršeni.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border: 2px solid #754e4b;
+border-radius: 5px;
+font-size: 14px;</string>
+    </property>
+    <property name="text">
+     <string>Zadatci koji su označeni kao dovršeni</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tekst_nedovrsenih">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>650</y>
+      <width>241</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Boja zadataka koji još nisu dovršeni.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;
+font-size: 14px;
+border: 2px solid #ffffff;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>Zadatci koji nisu dovršeni</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="spremi_listu">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>660</y>
+      <width>231</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Tipka koja omogućuje spremanje cijele liste u tekstualnoj datoteci.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #606e9e;
+color: black;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>SPREMI LISTU U TEKSTUALNU DATOTEKU</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dovrseno_danas_tekst">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Broj dovršenih zadataka danas / broj ukupnih zadataka.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;
+font-size: 14px;
+border: 1px solid rgb(78, 165, 255);
+border-radius: 5px;</string>
+    </property>
+    <property name="text">
+     <string>Dovršeno zadataka danas: 50/200</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dovrseno_datum_tekst">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>270</y>
+      <width>371</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="whatsThis">
+     <string>Broj dovršenih zadataka na izabrani datum / broj ukupnih zadataka tog datuma.</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+font-family: 'Times New Roman', serif;
+font-weight: bold;
+border-radius: 5px;
+font-size: 14px;
+border: 1px solid rgb(51, 122, 183);
+border-radius: 5px;
+background-color: rgb(44, 49, 61);
+</string>
+    </property>
+    <property name="text">
+     <string>Dovršeno zadataka: 50/200</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

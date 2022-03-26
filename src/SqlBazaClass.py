@@ -76,3 +76,7 @@ class SqlBaza(object):
                 temp.DodajZadatak(Zadatak(i[0],i[1]))
             _dict.update({ temp.VratiDatum() : temp })
         return _dict
+    
+    #Vraća path datoteke u kojoj je spremljena lista
+    def VratiPathOtvoreneBaze(self):
+        return self.otvorena_datoteka

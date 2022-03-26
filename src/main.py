@@ -51,6 +51,9 @@ class ToDoList(QtWidgets.QDialog):
 
         self.ui.datum_dovrseno.clicked.connect(self.DovrsiZadatakDatum)
 
+        #Kreiramo event za spremanje liste u tekst datoteku
+        self.ui.spremi_listu.clicked.connect(self.SpremiUTekst)
+
     #Kalendar i izabrani datum postavlja na dan nakon danasnjeg
     def PocetniSetup(self):
         dat = QtCore.QDate.currentDate().addDays(1)
@@ -74,7 +77,8 @@ class ToDoList(QtWidgets.QDialog):
                 self.baza.BazaDodajDatum(self.VratiDanasnjiDan(),self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiListuZadataka())
 
             self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].DodajZadatak(zad)
-            
+            self.UpdateBrojZadataka(self.VratiDanasnjiDan()) 
+
             self.baza.BazaSacuvajDatum(self.VratiDanasnjiDan(),self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiListuZadataka())
 
             self.ui.danas_upis.setPlainText("")
@@ -96,6 +100,7 @@ class ToDoList(QtWidgets.QDialog):
             
             self.ui.danas_lista.takeItem(izabrana_stavka)
             self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].ObrisiZadatak(izabrana_stavka)
+            self.UpdateBrojZadataka(self.VratiDanasnjiDan())
 
             self.baza.BazaSacuvajDatum(self.VratiDanasnjiDan(),self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiListuZadataka())
         except:
@@ -118,6 +123,8 @@ class ToDoList(QtWidgets.QDialog):
 
         self.UpdatePopis(self.izabrani_datum)
 
+        self.UpdateBrojZadataka(self.izabrani_datum)
+
     #Poziva se kada se pritisne tipka dodaj i dodaje novi zadatak na današnju listu
     def DodajZadatakDatum(self):
         self.ProvjeriBazu()
@@ -134,6 +141,8 @@ class ToDoList(QtWidgets.QDialog):
                 self.baza.BazaDodajDatum(self.izabrani_datum,self.lista_datuma.VratiDict()[self.izabrani_datum].VratiListuZadataka())
 
             self.lista_datuma.VratiDict()[self.izabrani_datum].DodajZadatak(zad)
+            self.UpdateBrojZadataka(self.izabrani_datum)
+
             self.baza.BazaSacuvajDatum(self.izabrani_datum,self.lista_datuma.VratiDict()[self.izabrani_datum].VratiListuZadataka())
 
             self.ui.datum_upis.setPlainText("")
@@ -156,6 +165,7 @@ class ToDoList(QtWidgets.QDialog):
             self.ui.datum_lista.takeItem(izabrana_stavka)
             
             self.lista_datuma.VratiDict()[self.izabrani_datum].ObrisiZadatak(izabrana_stavka)
+            self.UpdateBrojZadataka(self.izabrani_datum)
             self.baza.BazaSacuvajDatum(self.izabrani_datum,self.lista_datuma.VratiDict()[self.izabrani_datum].VratiListuZadataka())
         except:
             return
@@ -222,6 +232,8 @@ class ToDoList(QtWidgets.QDialog):
 
         self.UpdatePopis(self.VratiDanasnjiDan())
         self.UpdatePopis(self.izabrani_datum)
+        self.UpdateBrojZadataka(self.VratiDanasnjiDan())
+        self.UpdateBrojZadataka(self.izabrani_datum)
 
     #Provjeravamo ima li korisnik otvorenu bazu
     def ProvjeriBazu(self):
@@ -290,6 +302,7 @@ class ToDoList(QtWidgets.QDialog):
                 else: 
                     self.ui.danas_lista.insertItem(izabrana_stavka,item)
 
+                self.UpdateBrojZadataka(self.VratiDanasnjiDan())
                 self.baza.BazaSacuvajDatum(self.VratiDanasnjiDan(),self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiListuZadataka())
         except:
             return
@@ -321,7 +334,82 @@ class ToDoList(QtWidgets.QDialog):
                 else: 
                     self.ui.datum_lista.insertItem(izabrana_stavka,item)
                 
+                self.UpdateBrojZadataka(self.izabrani_datum)
                 self.baza.BazaSacuvajDatum(self.izabrani_datum,self.lista_datuma.VratiDict()[self.izabrani_datum].VratiListuZadataka())
+        except:
+            return
+
+    #Mijenja tekst s brojem dovršenih i ukupno zadataka
+    def UpdateBrojZadataka(self, datum): 
+        if(datum == self.VratiDanasnjiDan()):
+            try:
+                self.ui.dovrseno_danas_tekst.setText("Dovršeno zadataka danas: {0} / {1}".format(str(self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiBrojDovrsenih()), str(self.lista_datuma.VratiDict()[self.VratiDanasnjiDan()].VratiBrojZadataka())))
+            except:
+                self.ui.dovrseno_danas_tekst.setText("Dovršeno zadataka danas: 0 / 0")
+
+        else:
+            try:
+                self.ui.dovrseno_datum_tekst.setText("Dovršeno zadataka: {0} / {1}".format(str(self.lista_datuma.VratiDict()[datum].VratiBrojDovrsenih()), str(self.lista_datuma.VratiDict()[datum].VratiBrojZadataka())))
+            except:
+                self.ui.dovrseno_datum_tekst.setText("Dovršeno zadataka: 0 / 0")
+
+    #Služi za sortiranje po datumima
+    def sortirajPoDatumu(self, tekst):
+        x = tekst.split("/")
+        dat = QtCore.QDate.currentDate()
+        dat.setDate(int(x[2]),int(x[1]),int(x[0]))
+        return dat
+
+    #Poziva se kada se pritisne tipka za spremanju u tekstualnu datoteku
+    def SpremiUTekst(self):
+        svi_datumi_dict = self.lista_datuma.VratiDict()
+
+        datumi = []
+        for i in svi_datumi_dict:
+            datumi.append(str(i))
+        datumi.sort(key=self.sortirajPoDatumu)
+
+        spremi = QtWidgets.QFileDialog.getSaveFileName(self, "Izaberite", os.getcwd(), ".txt")
+
+        if(spremi[0] == ""):
+            return
+
+        path = os.path.splitext(str(spremi))
+        if(path[1][0:4].strip().lower() != "" and path[1][0:4].strip().lower() != ".txt"):
+            return
+
+        velike = "==============================================="
+        male = "-----------------------------------------------"
+
+        upis = velike + "\n"
+        upis += "Sadržaj liste " + os.path.basename(self.baza.VratiPathOtvoreneBaze()) + ".\nLista se nalazi u " + self.baza.VratiPathOtvoreneBaze() + "\n"
+        vrijeme = QtCore.QTime.currentTime()
+        upis += "Kreirano " + self.VratiDanasnjiDan() + " u " + "{0}:{1}:{2}".format(vrijeme.hour(),vrijeme.minute(),vrijeme.second()) + ".\n"
+        upis += velike + "\n"
+        for i in datumi:
+            if(svi_datumi_dict[i].VratiBrojZadataka() == 0):
+                continue
+
+            upis += male + "\n"
+            upis += i
+            upis += "\n"
+
+            for j in svi_datumi_dict[i].VratiListuZadataka():
+                upis += j.VratiTekst()
+                if(j.VratiStanje() == True):
+                    upis += " - DOVRŠEN"
+                upis += "\n"
+
+            upis += male + "\n\n"
+                
+        path = str(spremi[0])
+        if(path[-4:] != ".txt"):
+            path += ".txt"
+
+        try:
+            f = open(path,"w")
+            f.write(upis)
+            f.close()
         except:
             return
 
